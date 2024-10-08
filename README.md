@@ -91,6 +91,3 @@ npm run dev
 ```bash
 npm test
 ```
-### Summary
-
-You can add this section to your README directly after the **Import the SDK** section, providing a clear step-by-step guide for users to set up their map effectively. If you need further adjustments or have additional sections to add, just let me know!
