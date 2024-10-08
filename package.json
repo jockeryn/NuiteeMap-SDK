@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "SDK for nuitee maps, technical test",
   "main": "src/index.ts",
+  "author": "Johnny Reyes",
+  "license": "MIT",
+  "repository": "https://github.com/jockeryn/NuiteeMap-SDK",
   "scripts": {
     "test": "vitest",
     "dev": "vite"
@@ -15,8 +18,6 @@
     "maps",
     "engine"
   ],
-  "author": "Johnny Reyes",
-  "license": "ISC",
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.3",
     "dotenv": "^16.4.5",

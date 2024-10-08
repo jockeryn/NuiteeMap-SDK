@@ -25,7 +25,7 @@ The Nuitee Map SDK provides a powerful and flexible way to integrate interactive
 To install the Nuitee Map SDK, use npm:
 
 ```bash
-npm install nuitee-map-sdk
+npm install nuiteemap-sdk
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ Here's how to integrate the Nuitee Map SDK into your project:
 In your JavaScript or TypeScript file, import the `nuiteeMap` function from the SDK:
 
 ```javascript
-import { nuiteeMap } from 'nuitee-map-sdk';
+import { nuiteeMap } from 'nuiteemap-sdk';
 ```
 
 ### Step 2: Set Up Your Map
