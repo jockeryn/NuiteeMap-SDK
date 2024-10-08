@@ -1,18 +1,17 @@
 {
   "name": "nuiteemap-sdk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "SDK for nuitee maps, technical test",
   "main": "src/index.ts",
   "author": "Johnny Reyes",
   "license": "MIT",
-  "repository": "https://github.com/jockeryn/NuiteeMap-SDK",
-  "scripts": {
-    "test": "vitest",
-    "dev": "vite"
-  },
   "repository": {
     "type": "git",
     "url": "nuiteemaps"
+  },
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite"
   },
   "keywords": [
     "maps",
@@ -28,10 +27,10 @@
     "@types/jest": "^29.5.13",
     "@types/mapbox__mapbox-gl-geocoder": "^5.0.0",
     "@types/mapbox-gl": "^3.4.0",
-    "@vitest/coverage-c8": "^0.33.0",
     "css-loader": "^7.1.2",
     "jsdom": "^25.0.1",
     "sass": "^1.79.4",
+    "sass-embedded": "^1.79.4",
     "style-loader": "^4.0.0",
     "ts-jest": "^29.2.5",
     "vite": "^5.4.8",
