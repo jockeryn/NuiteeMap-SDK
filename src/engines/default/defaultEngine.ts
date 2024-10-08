@@ -26,9 +26,8 @@ export class defaultEngine implements MapEngine {
   private markers: mapboxgl.Marker[] = [];
   private addMarkerOnceActive = false;
   private activateRouteFinder = false;
-  private routeLayerId = 'route'; 
+  private routeLayerId = "route";
   private customToolsContainer: HTMLElement | null;
-
 
   //for directions feature
   private routingService!: RoutingService; // ID for the route layer
@@ -62,12 +61,13 @@ export class defaultEngine implements MapEngine {
       ariaLabel: "Add marker on next click",
       title: "Add marker on next click",
     });
-    button.innerHTML = "<span class='tooltiptext'>Add a single mark to the map</span>"
+    button.innerHTML =
+      "<span class='tooltiptext'>Add a single mark to the map</span>";
     // Attach click event to enable one-time add marker mode
     button.onclick = () => {
       button.classList.toggle("active");
       this.enableOneTimeAddMarker();
-    }
+    };
     this.customToolsContainer?.appendChild(button);
   }
 
@@ -77,7 +77,7 @@ export class defaultEngine implements MapEngine {
       ariaLabel: "See 3D view",
       title: "See 3D view",
     });
-    button.innerHTML = "<span class='tooltiptext'>Change to 3D view</span>"
+    button.innerHTML = "<span class='tooltiptext'>Change to 3D view</span>";
     // Attach click event to enable one-time add marker mode
     button.onclick = () => this.changeTo3DView();
     this.customToolsContainer?.appendChild(button);
@@ -117,10 +117,10 @@ export class defaultEngine implements MapEngine {
   private handleToggleRouteFinder() {
     this.activateRouteFinder = !this.activateRouteFinder;
     if (this.activateRouteFinder) {
-        this.map.on("click", this.handleMapClick.bind(this));
+      this.map.on("click", this.handleMapClick.bind(this));
     } else {
-        this.resetMarkers(); 
-        this.map.off("click", this.handleMapClick.bind(this));
+      this.resetMarkers();
+      this.map.off("click", this.handleMapClick.bind(this));
     }
   }
 
@@ -129,13 +129,14 @@ export class defaultEngine implements MapEngine {
       className: "mapboxgl-ctrl-icon mapboxgl-ctrl-directions tooltip",
       ariaLabel: "Get directions between two points",
     });
-    button.innerHTML = "<span class='tooltiptext'>Get directions between two points, just click on the map</span>"
+    button.innerHTML =
+      "<span class='tooltiptext'>Get directions between two points, just click on the map</span>";
 
     // Attach click event to enable one-time add marker mode
     button.onclick = () => {
       button.classList.toggle("active");
       this.handleToggleRouteFinder();
-    } 
+    };
 
     this.customToolsContainer?.appendChild(button);
   }
@@ -146,19 +147,18 @@ export class defaultEngine implements MapEngine {
     const coordinates = event.lngLat;
 
     if (this.markers.length >= 2) {
-        this.resetMarkers();
+      this.resetMarkers();
     }
 
     this.addMarker(coordinates, "");
 
     // If two markers exist, fetch directions
     if (this.markers.length === 2) {
-        const start = this.markers[0].getLngLat().toArray();
-        const end = this.markers[1].getLngLat().toArray();
-        this.routingService.fetchDirections(start, end);
+      const start = this.markers[0].getLngLat().toArray();
+      const end = this.markers[1].getLngLat().toArray();
+      this.routingService.fetchDirections(start, end);
     }
-}
-
+  }
 
   private enableOneTimeAddMarker(): void {
     this.addMarkerOnceActive = true;
@@ -227,7 +227,7 @@ export class defaultEngine implements MapEngine {
     // Add search box and directions always active
     this.addSearchBox();
     this.addRouteFinderButton();
-      this.routingService = new RoutingService(this.map);
+    this.routingService = new RoutingService(this.map);
 
     const tools = [
       {
@@ -249,19 +249,17 @@ export class defaultEngine implements MapEngine {
     });
   }
 
-  
-
   private resetMarkers() {
     // Clear all markers from the map
-    this.markers.forEach(marker => marker.remove());
+    this.markers.forEach((marker) => marker.remove());
     this.markers = []; // Reset the markers array
 
     // Remove the route layer if it exists
     if (this.map.getLayer(this.routeLayerId)) {
-        this.map.removeLayer(this.routeLayerId);
-        this.map.removeSource(this.routeLayerId); // Remove the source if necessary
+      this.map.removeLayer(this.routeLayerId);
+      this.map.removeSource(this.routeLayerId); // Remove the source if necessary
     }
-}
+  }
 
   addMarker(coordinates: Coordinates, label: string): void {
     // Create the marker
